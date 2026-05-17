@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>19 Mayıs 1919</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+body{
+
+    overflow-x:hidden;
+
+    background:black;
+
+    color:white;
+
+}
+
+
+
+/* ARKA PLAN */
+
+
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:url("arkaplan.png") center/cover no-repeat;
+
+    filter:blur(2px) brightness(0.45);
+
+    transform:scale(1.05);
+
+    z-index:-3;
+
+}
+
+
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        rgba(0,0,0,0.35),
+
+        rgba(0,0,0,0.85)
+
+    );
+
+    z-index:-2;
+
+}
+
+
+
+/* HAVAİ FİŞEK */
+
+
+
+#fireworks{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+
+/* ANA İÇERİK */
+
+
+
+.container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:60px 20px;
+
+    text-align:center;
+
+}
+
+
+
+h1{
+
+    font-size:72px;
+
+    letter-spacing:5px;
+
+    margin-bottom:18px;
+
+    text-shadow:0 0 25px rgba(255,255,255,0.35);
+
+    animation:fadeDown 1.5s ease;
+
+}
+
+
+
+.subtitle{
+
+    max-width:950px;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#ececec;
+
+    margin-bottom:70px;
+
+    animation:fadeUp 2s ease;
+
+}
+
+
+
+/* KARTLAR */
+
+
+
+.cards{
+
+    display:flex;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    margin-bottom:70px;
+
+}
+
+
+
+.card{
+
+    width:330px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.45s;
+
+    box-shadow:0 0 30px rgba(0,0,0,0.45);
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-12px) scale(1.02);
+
+    box-shadow:0 0 40px rgba(255,255,255,0.12);
+
+}
+
+
+
+.card img{
+
+    width:100%;
+
+    height:430px;
+
+    object-fit:cover;
+
+}
+
+
+
+.card-text{
+
+    padding:28px;
+
+}
+
+
+
+.card-text h3{
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+    color:white;
+
+}
+
+
+
+.card-text p{
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    color:#ededed;
+
+}
+
+
+
+/* ALT YAZI */
+
+
+
+.quote{
+
+    max-width:1050px;
+
+    font-size:30px;
+
+    line-height:1.9;
+
+    color:white;
+
+    text-shadow:0 0 15px rgba(255,255,255,0.18);
+
+    animation:fadeUp 2.5s ease;
+
+}
+
+
+
+.signature{
+
+    margin-top:35px;
+
+    font-size:20px;
+
+    letter-spacing:6px;
+
+    color:#d8d8d8;
+
+}
+
+
+
+/* ANİMASYON */
+
+
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-40px);
+
+    }
+
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* MOBİL */
+
+
+
+@media(max-width:768px){
+
+
+
+    h1{
+
+        font-size:42px;
+
+    }
+
+
+
+    .subtitle{
+
+        font-size:18px;
+
+    }
+
+
+
+    .quote{
+
+        font-size:22px;
+
+    }
+
+
+
+    .card{
+
+        width:92%;
+
+    }
+
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="background"></div>
+
+<div class="overlay"></div>
+
+
+
+<canvas id="fireworks"></canvas>
+
+
+
+<div class="container">
+
+
+
+    <h1>19 MAYIS 1919</h1>
+
+
+
+    <p class="subtitle">
+
+        Bir milletin küllerinden yeniden doğduğu gün...
+
+        Umudun, cesaretin ve bağımsızlığın ilk adımı...
+
+        Sonsuz saygı, minnet ve özlemle...
+
+    </p>
+
+
+
+    <div class="cards">
+
+
+
+        <!-- KART 1 -->
+
+
+
+        <div class="card">
+
+
+
+            <img src="resim1.jpg" alt="Atatürk">
+
+
+
+            <div class="card-text">
+
+
+
+                <h3>Bir Liderden Daha Fazlası</h3>
+
+
+
+                <p>
+
+                    Karanlığın en yoğun olduğu anda,
+
+                    bir milletin umudu oldun...
+
+                    Yalnızca savaş kazanmadın,
+
+                    bir halkın yeniden ayağa kalkmasını sağladın.
+
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- KART 2 -->
+
+
+
+        <div class="card">
+
+
+
+            <img src="resim2.jpg" alt="Atatürk">
+
+
+
+            <div class="card-text">
+
+
+
+                <h3>Gençliğe İnanç</h3>
+
+
+
+                <p>
+
+                    Gözlerindeki umutla geleceği gördün...
+
+                    Bu ülkeyi gençlere emanet ederken,
+
+                    aslında sonsuz bir geleceği bize bıraktın.
+
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- KART 3 -->
+
+
+
+        <div class="card">
+
+
+
+            <img src="resim1.jpg" alt="Atatürk">
+
+
+
+            <div class="card-text">
+
+
+
+                <h3>19 Mayıs'ın Işığı</h3>
+
+
+
+                <p>
+
+                    Samsun’a atılan o ilk adım,
+
+                    yalnızca bir başlangıç değildi...
+
+                    Bir milletin yeniden doğuşuydu.
+
+                    Ve biz hâlâ senin izindeyiz Paşam...
+
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="quote">
+
+        “Samsun’a atılan o ilk adım,
+
+        bir milletin kaderini değiştiren ilk adımdı...
+
+        Aradan geçen yıllara rağmen,
+
+        bıraktığın umut hâlâ kalplerimizde yaşamaya devam ediyor.”
+
+    </div>
+
+
+
+    <div class="signature">
+
+        MUSTAFA KEMAL ATATÜRK
+
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+
+
+
+const canvas = document.getElementById("fireworks");
+
+const ctx = canvas.getContext("2d");
+
+
+
+canvas.width = window.innerWidth;
+
+canvas.height = window.innerHeight;
+
+
+
+window.addEventListener("resize", () => {
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+});
+
+
+
+let particles = [];
+
+
+
+function createFlagFirework(){
+
+
+
+    const centerX = window.innerWidth / 2;
+
+    const centerY = window.innerHeight / 3;
+
+
+
+    /* AY */
+
+
+
+    for(let i = 0; i < 180; i++){
+
+
+
+        const angle = Math.random() * Math.PI * 2;
+
+        const radius = 90 + Math.random() * 20;
+
+
+
+        let x = Math.cos(angle) * radius;
+
+        let y = Math.sin(angle) * radius;
+
+
+
+        if(x > 0){
+
+            x += 35;
+
+        }
+
+
+
+        particles.push({
+
+            x:centerX + x,
+
+            y:centerY + y,
+
+            size:2 + Math.random()*2,
+
+            alpha:1,
+
+            color:"rgba(255,255,255,",
+
+            dx:(Math.random()-0.5)*0.5,
+
+            dy:(Math.random()-0.5)*0.5
+
+        });
+
+
+
+    }
+
+
+
+    /* YILDIZ */
+
+
+
+    for(let i = 0; i < 5; i++){
+
+
+
+        const angle = (Math.PI * 2 / 5) * i - Math.PI / 2;
+
+
+
+        const outerX = Math.cos(angle) * 35;
+
+        const outerY = Math.sin(angle) * 35;
+
+
+
+        for(let j = 0; j < 40; j++){
+
+
+
+            particles.push({
+
+                x:centerX + 120 + outerX + (Math.random()-0.5)*10,
+
+                y:centerY + outerY + (Math.random()-0.5)*10,
+
+                size:2 + Math.random()*2,
+
+                alpha:1,
+
+                color:"rgba(255,0,0,",
+
+                dx:(Math.random()-0.5)*0.7,
+
+                dy:(Math.random()-0.5)*0.7
+
+            });
+
+
+
+        }
+
+
+
+    }
+
+
+
+}
+
+
+
+function animate(){
+
+
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+
+
+    particles.forEach((p,index)=>{
+
+
+
+        p.x += p.dx;
+
+        p.y += p.dy;
+
+
+
+        p.alpha -= 0.003;
+
+
+
+        ctx.beginPath();
+
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+
+
+
+        ctx.fillStyle = p.color + p.alpha + ")";
+
+        ctx.fill();
+
+
+
+        if(p.alpha <= 0){
+
+            particles.splice(index,1);
+
+        }
+
+
+
+    });
+
+
+
+    requestAnimationFrame(animate);
+
+
+
+}
+
+
+
+animate();
+
+
+
+setInterval(() => {
+
+    createFlagFirework();
+
+}, 7000);
+
+
+
+setTimeout(() => {
+
+    createFlagFirework();
+
+}, 1500);
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
